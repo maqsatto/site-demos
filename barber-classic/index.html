@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Barber Nomad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Oswald:wght@500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"></head>
+<body><div id="app"></div>
+<script>
+/* ДЕМО: вымышленный барбершоп. Для клиента поменяй значения ниже.
+   Фото: в gallery вместо заглушки укажи img:"photo1.jpg" (файл положи рядом).
+   В headline знак | отделяет красную часть заголовка. */
+window.SITE = {
+  isDemo: true,
+  name: "Barber Nomad", logoA: "Barber ", logoB: "Nomad", accent: "#c8372d",
+  tagline: { ru: "Барбершоп · Астана", kk: "Барбершоп · Астана" },
+  since: { ru: "С 2021 года", kk: "2021 жылдан бері" },
+  headline: { ru: "Стрижка|по записи", kk: "Шаш қию|жазылумен" },
+  sub: { ru: "Четыре мастера, час на клиента, без очереди и спешки. Цены ниже, записаться можно за минуту.", kk: "Төрт шебер, әр клиентке бір сағат, кезексіз және асықпай. Бағасы төменде, бір минутта жазылуға болады." },
+  waText: { ru: "Здравствуйте! Хочу записаться на стрижку.", kk: "Сәлеметсіз бе! Шаш қиюға жазылғым келеді." },
+  whatsapp: "77000000000", phone: "+7 700 000 00 00", phoneRaw: "+77000000000",
+  instagram: "barbernomad.astana",
+  /* bookUrl: "https://n123456.alteg.io",   <- если у барбершопа уже есть запись, вставь ссылку: кнопка «Записаться» откроет её */
+  address: { ru: "г. Астана, ул. Примерная, 1", kk: "Астана қ., Үлгі көшесі, 1" },
+  hours: { ru: "Ежедневно 10:00–22:00", kk: "Күн сайын 10:00–22:00" },
+  mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=71.40%2C51.12%2C71.46%2C51.15&layer=mapnik",
+  services: [
+    { name: { ru: "Мужская стрижка", kk: "Ерлер шаш қиюы" }, price: "5 000 ₸", priceFrom: true, desc: { ru: "Мытьё головы, стрижка машинкой и ножницами, укладка. 60 минут", kk: "Бас жуу, машинка мен қайшымен қию, сәндеу. 60 минут" } },
+    { name: { ru: "Борода", kk: "Сақал" }, price: "3 000 ₸", priceFrom: true, desc: { ru: "Моделирование, контур, горячее полотенце. 30 минут", kk: "Пішін беру, контур, ыстық сүлгі. 30 минут" } },
+    { name: { ru: "Комплекс", kk: "Кешен" }, price: "7 500 ₸", desc: { ru: "Стрижка и борода за один визит", kk: "Бір барғанда шаш қию және сақал" } },
+    { name: { ru: "Детская стрижка", kk: "Балалар шаш қиюы" }, price: "3 500 ₸", priceFrom: true, desc: { ru: "До 12 лет", kk: "12 жасқа дейін" } },
+    { name: { ru: "Королевское бритьё", kk: "Корольдік қырыну" }, price: "4 500 ₸", desc: { ru: "Опасная бритва, горячее полотенце", kk: "Қауіпті ұстара, ыстық сүлгі" } },
+    { name: { ru: "Камуфляж седины", kk: "Ақ шашты бояу" }, price: "3 500 ₸", priceFrom: true }
+  ],
+  gallery: [
+    { label: { ru: "Классика", kk: "Классика" } },
+    { label: { ru: "Фейд", kk: "Фейд" } },
+    { label: { ru: "Борода", kk: "Сақал" } },
+    { label: { ru: "Текстура", kk: "Текстура" } }
+  ],
+  masters: [
+    { name: "Ерлан", role: { ru: "Старший барбер", kk: "Аға барбер" }, exp: { ru: "7 лет", kk: "7 жыл" } },
+    { name: "Данияр", role: { ru: "Барбер", kk: "Барбер" }, exp: { ru: "4 года", kk: "4 жыл" } },
+    { name: "Алмас", role: { ru: "Барбер", kk: "Барбер" }, exp: { ru: "3 года", kk: "3 жыл" } }
+  ],
+  reviews: [
+    { name: "Азамат", text: { ru: "Стрижка держится месяц. Мастер спросил, как я укладываюсь, и сделал под это.", kk: "Шашым бір ай формасын сақтайды. Шебер қалай жататынымды сұрап, соған лайықтап қиды." } },
+    { name: "Руслан", text: { ru: "Записался в WhatsApp за минуту, пришёл вовремя, ждать не пришлось.", kk: "WhatsApp-пен бір минутта жазылдым, уақытында келдім, күтпедім." } },
+    { name: "Тимур", text: { ru: "Хожу с сыном, обоим делают аккуратно.", kk: "Ұлыммен бірге барамыз, екеуімізге де ұқыпты жасайды." } }
+  ]
+};
+</script>
+<script src="../app.js"></script></body></html>
