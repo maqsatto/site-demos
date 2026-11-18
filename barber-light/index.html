@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Barber Nomad — барбершоп в Астане, онлайн-запись</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+/* Light: светлый, зелёный, онлайн-запись с выбором времени. Mobile first */
+:root{--bg:#ffffff;--soft:#f4f6f3;--ink:#14201a;--mut:#5d6b63;--g:#0f5132;--g2:#0b3d26;--line:#e2e7e2;--pad:18px;--bar:62px;--r:14px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16.5px/1.55 "Inter",system-ui,sans-serif;padding-bottom:calc(var(--bar) + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%;height:auto}
+.wrap{padding:0 var(--pad);max-width:1160px;margin:0 auto}
+h1,h2,h3{margin:0;letter-spacing:-.02em;font-weight:700}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:700;font-size:1.12rem;letter-spacing:-.02em;white-space:nowrap}.logo b{color:var(--g)}
+nav{display:flex;align-items:center;gap:4px}nav .lk{display:none}
+.lang button{background:none;border:0;color:var(--mut);font:600 .78rem "Inter";padding:12px 7px;cursor:pointer}.lang button.on{color:var(--g)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;background:var(--g);color:#fff;border:0;border-radius:12px;font:600 .95rem "Inter";cursor:pointer;transition:background .2s,transform .1s}
+.btn:active{transform:scale(.98)}@media(hover:hover){.btn:hover{background:var(--g2)}}
+.btn.o{background:#fff;color:var(--g);border:1.5px solid var(--g)}
+header .btn{min-height:38px;padding:0 14px;font-size:.8rem;border-radius:10px}
+/* hero + виджет записи */
+.hero{padding:26px 0 44px;background:linear-gradient(180deg,var(--soft),#fff)}
+.hero .tx h1{font-size:clamp(2.1rem,9vw,3.6rem);line-height:1.05;margin-bottom:14px}
+.hero .tx p{color:var(--mut);margin:0 0 18px;max-width:30em}
+.pic{border-radius:18px;overflow:hidden;margin:20px 0;aspect-ratio:4/3}.pic img{width:100%;height:100%;object-fit:cover;object-position:78% 35%}
+.feat{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--mut);font-size:.88rem;margin-top:14px}.feat span:before{content:"✓";color:var(--g);font-weight:700;margin-right:6px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 12px 34px rgba(15,81,50,.08)}
+.card h2{font-size:1.3rem;margin-bottom:4px}.card .sub{color:var(--mut);font-size:.9rem;margin:0 0 14px}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--mut);margin:12px 0 6px}
+input,select{width:100%;min-height:50px;border:1.5px solid var(--line);border-radius:11px;padding:0 14px;background:#fff;color:var(--ink);font:500 16px "Inter";appearance:none;-webkit-appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);background-position:calc(100% - 20px) 21px,calc(100% - 15px) 21px;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+input:focus,select:focus{outline:0;border-color:var(--g);box-shadow:0 0 0 3px rgba(15,81,50,.14)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slot{min-height:44px;border:1.5px solid var(--line);background:#fff;border-radius:10px;font:600 .88rem "Inter";color:var(--ink);cursor:pointer}
+.slot.on{background:var(--g);border-color:var(--g);color:#fff}
+.card .btn{width:100%;margin-top:16px}.note{font-size:.76rem;color:var(--mut);margin:10px 0 0;text-align:center}
+/* sections */
+section{padding:56px 0}
+.hd{margin-bottom:24px}.hd small{display:block;font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:6px}.hd h2{font-size:clamp(1.7rem,6.6vw,2.5rem);line-height:1.1}
+.snap{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--pad)*-1);padding:2px var(--pad) 10px;scrollbar-width:none}
+.snap::-webkit-scrollbar{display:none}.snap>*{flex:0 0 78%;scroll-snap-align:start}
+.sv{background:var(--soft);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.sv img{width:100%;aspect-ratio:3/2;object-fit:cover}.sv div{padding:16px}.sv h3{font-size:1.06rem;margin-bottom:4px}.sv p{margin:0 0 10px;color:var(--mut);font-size:.9rem}.sv b{color:var(--g);font-size:1.25rem}
+.gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:var(--r)}
+.mc{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.mc img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%}.mc div{padding:14px 16px 16px}.mc h3{font-size:1.1rem}.mc p{margin:2px 0 12px;color:var(--mut);font-size:.88rem}
+.mc .btn{min-height:42px;width:100%;font-size:.88rem}
+.rv2{background:var(--soft);border-radius:var(--r);padding:20px}.stars{color:#e5a100;letter-spacing:2px}.rv2 p{margin:8px 0 10px}.rv2 cite{font-style:normal;font-weight:600;font-size:.88rem}.rv2 small{color:var(--mut);margin-left:6px}
+.ct dl{margin:0}.ct dl div{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}.ct dt{flex:0 0 96px;color:var(--mut);font-size:.88rem}.ct dd{margin:0;font-weight:500}
+.ct .btns{display:grid;gap:10px;margin:20px 0}
+.map iframe{display:block;width:100%;height:280px;border:0;border-radius:var(--r)}
+footer{border-top:1px solid var(--line);padding:22px 0 26px;color:var(--mut);font-size:.82rem}
+.bar{position:fixed;inset:auto 0 0 0;z-index:40;display:flex;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+.bar .btn{flex:1;min-height:46px}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media(min-width:700px){:root{--pad:30px}body{font-size:17px}.snap>*{flex-basis:42%}.slots{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:1000px){
+ :root{--pad:40px}body{padding-bottom:0}header .wrap{height:70px}nav{gap:28px}nav .lk{display:block;font-weight:500;font-size:.92rem;color:var(--mut)}nav .lk:hover{color:var(--g)}header .btn{min-height:42px;padding:0 20px;font-size:.9rem}.bar{display:none}
+ .hero{padding:60px 0 80px}.hero .wrap{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}.hero .tx h1{font-size:clamp(3rem,4.8vw,4.2rem)}.pic{margin:26px 0 0}
+ section{padding:90px 0}
+ .snap{display:grid;overflow:visible;margin:0;padding:0;gap:20px}.snap>*{flex:initial}
+ .sv4{grid-template-columns:repeat(4,1fr)}.gal{grid-template-columns:repeat(4,1fr)}.team{grid-template-columns:repeat(3,1fr)}.rv3{grid-template-columns:repeat(3,1fr)}
+ .ctg{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}.map iframe{height:400px}
+}
+</style></head><body>
+<header id="hd"><div class="wrap">
+ <a class="logo" href="#top">Barber <b>Nomad</b></a>
+ <nav><a class="lk" href="#price" data-kk="Қызметтер">Услуги</a><a class="lk" href="#team" data-kk="Шеберлер">Мастера</a><a class="lk" href="#work" data-kk="Галерея">Галерея</a><a class="lk" href="#contacts" data-kk="Байланыс">Контакты</a>
+ <span class="lang"><button data-l="ru" class="on">RU</button><button data-l="kk">ҚАЗ</button></span><a class="btn" href="#book" data-kk="Жазылу">Записаться</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+ <div class="tx"><h1 data-kk="Барбершоп Астанада.<br>Жазылу бір минутта">Барбершоп в Астане.<br>Запись за минуту</h1>
+ <p data-kk="Мастерді, қызметті және ыңғайлы уақытты таңдаңыз. Растауды WhatsApp-қа аласыз.">Выберите мастера, услугу и удобное время. Подтверждение придёт в WhatsApp.</p>
+ <div class="pic"><img src="img/hero.jpg" width="1672" height="941" alt="Барбер оформляет висок клиенту" fetchpriority="high"></div>
+ <div class="feat"><span data-kk="Жазылумен, кезексіз">По записи, без очереди</span><span data-kk="Әр клиентке бір сағат">Час на клиента</span><span data-kk="Бағалар ашық">Цены на виду</span></div></div>
+
+ <div class="card" id="book"><h2 data-kk="Онлайн-жазылу">Онлайн-запись</h2><p class="sub" data-kk="Мастерді және уақытты таңдаңыз">Выберите мастера и время</p>
+  <form id="bf" novalidate>
+   <label data-kk="Мастер">Мастер</label><select name="m" aria-label="Мастер"><option value="">Любой мастер</option><option>Арман</option><option>Нурлан</option><option>Данияр</option></select>
+   <label data-kk="Қызмет">Услуга</label><select name="s" aria-label="Услуга"><option>Мужская стрижка · 8 000 ₸</option><option>Стрижка + борода · 12 000 ₸</option><option>Королевское бритьё · 7 000 ₸</option><option>Оформление бороды · 6 000 ₸</option><option>Детская стрижка · 5 000 ₸</option></select>
+   <label data-kk="Уақыт (бүгін)">Время (сегодня)</label>
+   <div class="slots"><button type="button" class="slot on">10:00</button><button type="button" class="slot">11:00</button><button type="button" class="slot">12:00</button><button type="button" class="slot">13:00</button><button type="button" class="slot">14:00</button><button type="button" class="slot">15:00</button><button type="button" class="slot">16:00</button><button type="button" class="slot">17:00</button><button type="button" class="slot">18:00</button><button type="button" class="slot">19:00</button></div>
+   <input type="hidden" name="w" value="10:00">
+   <label data-kk="Аты және телефон">Имя и телефон</label>
+   <input name="n" required autocomplete="name" placeholder="Имя" data-ph-kk="Аты" style="margin-bottom:8px"><input name="p" required type="tel" inputmode="tel" autocomplete="tel" placeholder="Телефон" data-ph-kk="Телефон">
+   <button class="btn" type="submit" data-kk="Жазылу">Записаться</button>
+   <p class="note" data-kk="Хабарлама WhatsApp-та дайын мәтінмен ашылады">Сообщение откроется в WhatsApp с готовым текстом</p>
+  </form></div>
+</div></div>
+
+<section id="price"><div class="wrap rv"><div class="hd"><small data-kk="Қызметтер және бағалар">Услуги и цены</small><h2 data-kk="Бағалар ашық">Цены на виду</h2></div>
+ <div class="snap sv4">
+  <div class="sv"><img src="img/g2.jpg" width="1254" height="1254" alt="Мужская стрижка" loading="lazy"><div><h3 data-kk="Ерлер шаш қиюы">Мужская стрижка</h3><p data-kk="Жуу, қию, сәндеу · 60 мин">Мытьё, стрижка, укладка · 60 мин</p><b>8 000 ₸</b></div></div>
+  <div class="sv"><img src="img/g4.jpg" width="1254" height="1254" alt="Стрижка и борода" loading="lazy"><div><h3 data-kk="Шаш + сақал">Стрижка + борода</h3><p data-kk="Бір барғанда · 90 мин">За один визит · 90 мин</p><b>12 000 ₸</b></div></div>
+  <div class="sv"><img src="img/g3.jpg" width="1254" height="1254" alt="Королевское бритьё" loading="lazy"><div><h3 data-kk="Корольдік қырыну">Королевское бритьё</h3><p data-kk="Қауіпті ұстара, ыстық сүлгі">Опасная бритва, горячее полотенце</p><b>7 000 ₸</b></div></div>
+  <div class="sv"><img src="img/g1.jpg" width="1536" height="1024" alt="Оформление бороды" loading="lazy" style="object-position:30% 50%"><div><h3 data-kk="Сақалға пішін беру">Оформление бороды</h3><p data-kk="Контур және күтім · 30 мин">Контур и уход · 30 мин</p><b>6 000 ₸</b></div></div>
+ </div></div></section>
+
+<section id="team" style="padding-top:0"><div class="wrap rv"><div class="hd"><small data-kk="Шеберлер">Мастера</small><h2 data-kk="Шеберіңізді таңдаңыз">Выберите мастера</h2></div>
+ <div class="snap team">
+  <div class="mc"><img src="img/m1.jpg" width="1122" height="1402" alt="Арман" loading="lazy"><div><h3>Арман</h3><p data-kk="Аға барбер · 8 жыл">Старший барбер · 8 лет</p><button class="btn o" data-pick="Арман" data-kk="Таңдау">Выбрать</button></div></div>
+  <div class="mc"><img src="img/m2.jpg" width="1122" height="1402" alt="Нурлан" loading="lazy"><div><h3>Нурлан</h3><p data-kk="Барбер · 5 жыл">Барбер · 5 лет</p><button class="btn o" data-pick="Нурлан" data-kk="Таңдау">Выбрать</button></div></div>
+  <div class="mc"><img src="img/m3.jpg" width="1122" height="1402" alt="Данияр" loading="lazy"><div><h3>Данияр</h3><p data-kk="Барбер · 3 жыл">Барбер · 3 года</p><button class="btn o" data-pick="Данияр" data-kk="Таңдау">Выбрать</button></div></div>
+ </div></div></section>
+
+<section id="work" style="padding-top:0"><div class="wrap rv"><div class="hd"><small data-kk="Галерея">Галерея</small><h2 data-kk="Біздің атмосфера">Атмосфера Barber Nomad</h2></div>
+ <div class="snap gal">
+  <div><img src="img/g1.jpg" width="1536" height="1024" alt="Зал" loading="lazy"></div>
+  <div><img src="img/g2.jpg" width="1254" height="1254" alt="Фейд" loading="lazy"></div>
+  <div><img src="img/g3.jpg" width="1254" height="1254" alt="Инструменты" loading="lazy"></div>
+  <div><img src="img/g4.jpg" width="1254" height="1254" alt="Результат" loading="lazy"></div>
+ </div></div></section>
+
+<section id="reviews" style="padding-top:0"><div class="wrap rv"><div class="hd"><small data-kk="Пікірлер">Отзывы</small><h2 data-kk="Клиенттер не дейді">Что говорят клиенты</h2></div>
+ <div class="snap rv3">
+  <div class="rv2"><div class="stars">★★★★★</div><p data-kk="Шашым бір ай формасын сақтайды. Шебер қалай жататынымды сұрады.">Стрижка держится месяц. Мастер спросил, как я укладываюсь.</p><cite>Руслан К.</cite><small data-kk="2 апта бұрын">2 недели назад</small></div>
+  <div class="rv2"><div class="stars">★★★★★</div><p data-kk="Жарты жылдан бері барамын. Нәтиже әрқашан тұрақты.">Полгода хожу. Результат всегда стабильный.</p><cite>Ержан С.</cite><small data-kk="ай бұрын">месяц назад</small></div>
+  <div class="rv2"><div class="stars">★★★★★</div><p data-kk="WhatsApp арқылы бір минутта жазылдым, күтпедім.">Записался в WhatsApp за минуту, ждать не пришлось.</p><cite>Айбек М.</cite><small data-kk="ай бұрын">месяц назад</small></div>
+ </div></div></section>
+
+<section id="contacts" style="padding-top:0"><div class="wrap rv"><div class="hd"><small data-kk="Байланыс">Контакты</small><h2 data-kk="Қалай табуға болады">Как нас найти</h2></div>
+ <div class="ctg"><div class="ct"><dl>
+  <div><dt data-kk="Мекенжай">Адрес</dt><dd data-kk="Астана қ., Үлгі көшесі, 1">г. Астана, ул. Примерная, 1</dd></div>
+  <div><dt data-kk="Уақыты">Часы</dt><dd data-kk="Күн сайын 10:00–21:00">Ежедневно 10:00–21:00</dd></div>
+  <div><dt data-kk="Телефон">Телефон</dt><dd><a href="tel:+77000000000">+7 700 000 00 00</a></dd></div>
+  <div><dt>Instagram</dt><dd><a href="https://instagram.com/barbernomad.astana" target="_blank" rel="noopener">@barbernomad.astana</a></dd></div></dl>
+  <div class="btns"><a class="btn" href="https://wa.me/77000000000" target="_blank" rel="noopener" data-kk="WhatsApp-қа жазу">Написать в WhatsApp</a><a class="btn o" href="tel:+77000000000" data-kk="Қоңырау шалу">Позвонить</a></div></div>
+  <div class="map"><iframe title="Карта" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=71.40%2C51.12%2C71.46%2C51.15&layer=mapnik"></iframe></div></div>
+</div></section>
+</main>
+<footer><div class="wrap">© 2026 Barber Nomad · <span data-kk="Демо-сайт, мысал ретінде жасалған">Демо-сайт, сделано для примера</span></div></footer>
+<div class="bar"><a class="btn" href="#book" data-kk="Жазылу">Записаться</a><a class="btn o" href="https://wa.me/77000000000" target="_blank" rel="noopener">WhatsApp</a></div>
+<script src="../barber-common.js"></script>
+</body></html>
